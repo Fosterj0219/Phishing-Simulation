@@ -1,0 +1,8 @@
+🔥 MAIN METHOD LOADED
+✅ THIS IS MY FINAL SIMULATED EMAIL VERSION
+To: recipient@example.com
+Subject: ⚠ Urgent: Account Verification Required
+Body:
+<h3>This is a simulated phishing email.</h3>
+<p>Please click below to verify your account:</p>
+<a href='http://localhost:8080/fake-login'>Click here</a>
