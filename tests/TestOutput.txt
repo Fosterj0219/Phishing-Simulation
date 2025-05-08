@@ -1,8 +1,23 @@
-🔥 MAIN METHOD LOADED
-✅ THIS IS MY FINAL SIMULATED EMAIL VERSION
+These are trial runs with the different messages from the output of a successful simulation attempt. 
+There are 2 different experiments / trials. 
+
+Jawan@BOOK-U498921CLI MINGW64 /c/Users/jawan/Phishing-Simulation (feature/email-sender)
+$ java -cp "src;javax.mail-1.6.2.jar;activation-1.1.1.jar" EmailSender
+? MAIN METHOD LOADED
+? SIMULATED EMAIL OUTPUT:
 To: recipient@example.com
-Subject: ⚠ Urgent: Account Verification Required
+Subject: ? Urgent: Account Verification Required
 Body:
-<h3>This is a simulated phishing email.</h3>
-<p>Please click below to verify your account:</p>
-<a href='http://localhost:8080/fake-login'>Click here</a>
+<h3>This is a simulated phishing email.</h3><p>Please click below to verify your account:</p><a href='http://localhost:8080/fake-login'>Click here</a>
+
+Jawan@BOOK-U498921CLI MINGW64 /c/Users/jawan/Phishing-Simulation (feature/email-sender)
+$ javac -cp "javax.mail-1.6.2.jar;activation-1.1.1.jar" src/EmailSender.java
+
+Jawan@BOOK-U498921CLI MINGW64 /c/Users/jawan/Phishing-Simulation (feature/email-sender)
+$ java -cp "src;javax.mail-1.6.2.jar;activation-1.1.1.jar" EmailSender
+!! Uh-Oh, you've fell for the phishing attempt
+SIMULATED EMAIL OUTPUT:
+To: recipient@example.com
+Subject: !! Urgent: Resolve this right away! this is an internal requirement
+Body:
+<h3>User, you failed. This was a phishing attempt.</h3><p>Please report to mandatory compliance training:</p><a href='http://localhost:8080/fake-login'>Click here</a>
