@@ -5,7 +5,7 @@ Overview -This tool is designed to simulate a phishing attempt email using the j
 
 * IMPORTANT * 
 This project is a phishing campaign simulation tool created for ethical hacking and cybersecurity education.  
-⚠️ Use ONLY on personally owned or explicitly authorized systems.
+ Use ONLY on personally owned or explicitly authorized systems.
 
 
 The primary goal of this project is to:
