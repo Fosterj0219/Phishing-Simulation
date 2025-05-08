@@ -20,9 +20,9 @@ public class ActivityTracker {
         log("LINK_CLICKED", emailId);
     }
 
-    //Logs when a user enters fake login credentials
-    public static void logFakeLoginCaptured(String emailId) {
-        log("FAKE_LOGIN", emailId);
+    // Logs when a user enters login credentials
+    public static void logLoginEntered(String emailId) {
+        log("LOGIN_ENTERED", emailId);
     }
 
     //Write a log entry with time, action, and email
