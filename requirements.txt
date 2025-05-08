@@ -1,0 +1,8 @@
+# Required JAR for sending emails using Java
+javax.mail: 1.6.2
+
+# JAR needed to handle attachments and mime types which is used by JavaMail. 
+activation.jar: 1.1.1
+
+# Recommended version of Java for compatibility
+Java Version: 17+ 
