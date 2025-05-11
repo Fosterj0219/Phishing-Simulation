@@ -1,46 +1,49 @@
 import java.util.Properties;
+import java.util.Scanner;
 import javax.mail.*;
 import javax.mail.internet.*;
 
 public class EmailSender {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the email address to simulate phishing to: ");
+        String recipient = scanner.nextLine();
+        scanner.close();
 
-        final String username = "Testing123_email@gmail.com"; // 
-        final String password = "Testing_password";         // Use an app password or test password
+        final String username = "7c00fd953ad970";     // Mailtrap SMTP username
+        final String password = "139410a49e4732";     // Mailtrap SMTP password
 
-        // Setup mail server properties
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.host", "sandbox.smtp.mailtrap.io");
+        props.put("mail.smtp.port", "2525");
 
-        // Start a mail session with authentication
-        Session session = Session.getInstance(props,
-            new Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(username, password);
-                }
-            });
+        Session session = Session.getInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
 
         try {
-            // Create the email message
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(username));
-            message.setRecipients(
-                Message.RecipientType.TO,
-                InternetAddress.parse("ApprovedTesting@example.com") // ✅ Replace with recipient
-            );
-            message.setSubject("Very Important: Take Immediate Action");
-            message.setContent(
-                "<h3>This is a simulated phishing email.</h3><p>Please click below to verify:</p>" +
-                "<a href='http://localhost:8080/fake-login'>Click here</a>",
-                "text/html"
+            message.setFrom(new InternetAddress("security@yourcompany.com"));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
+            message.setSubject("Urgent: Resolve this right away! This is an internal requirement");
+
+            message.setText(
+                "Hello,\n\n" +
+                "After completing an internal audit, we have recognized that your credentials do not meet the system’s minimum security requirements.\n\n" +
+                "Please copy and paste the following link to update your credentials:\n" +
+                "http://localhost:8080/fake-login.html\n\n" +
+                "Thank you."
             );
 
-            // Send the email
             Transport.send(message);
-            System.out.println("Email sent successfully!");
+            System.out.println("Phishing simulation sent successfully to: " + recipient);
+
+            // Log the event
+            ActivityTracker.logEmailSent(recipient);
 
         } catch (MessagingException e) {
             e.printStackTrace();
